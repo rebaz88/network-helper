@@ -33,7 +33,7 @@ fn options() {
             let ip: String = ip_prompt();
             
             // check if can ping the swith
-            pinger::run(vec![ip.as_str()]);
+            pinger::run(&vec![ip.as_str()]);
         }
         "2" => {
             println!("You want to reset all switches");
