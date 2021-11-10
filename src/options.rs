@@ -1,6 +1,5 @@
 use std::io::{stdin,stdout,Write};
 use std::process;
-use colored::*;
 pub mod ip_validation;
 pub mod pinger;
 
@@ -8,7 +7,7 @@ use ip_validation::{IPAddressValidation,is_valid_ip_address};
 
 pub fn run() {
     println!("\n=================");
-    println!("{}", " Network Helper".green());
+    println!("{}", " Network Helper");
     println!("=================");
     
     loop {
@@ -67,14 +66,14 @@ fn prompt<'a>() -> String {
 
 fn ip_prompt<'a>() -> String {
     
-    println!("{}", "Please enter an ip address".magenta());
+    println!("{}", "Please enter an ip address");
     
     let ip: String = prompt();
     
     loop {
         let validate_ip: IPAddressValidation = is_valid_ip_address(&ip);
         if ! validate_ip.is_valid {
-            println!("{}\n", validate_ip.message.red());
+            println!("{}\n", validate_ip.message);
             ip_prompt();
         }  else {
             return ip;

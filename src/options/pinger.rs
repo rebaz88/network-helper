@@ -1,4 +1,3 @@
-use colored::*;
 use fastping_rs::PingResult::{Idle, Receive};
 use fastping_rs::Pinger;
 
@@ -19,12 +18,12 @@ pub fn run(ips: Vec<&str>) {
             Ok(result) => match result {
                 Idle { addr } => {
                     let msg = format!("Idle Address {}.", addr);
-                    println!("{}", msg.red());
+                    println!("{}", msg);
                 }
                 Receive { addr, rtt } => {
                     pinger.remove_ipaddr(format!("{}", addr).as_str());
                     let msg = format!("Receive from address {} in {:?}.", addr, rtt);
-                    println!("{}", msg.green());
+                    println!("{}", msg);
                 }
             },
             Err(_) => panic!("Worker threads disconnected before the solution was found!"),

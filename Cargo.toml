@@ -10,7 +10,6 @@ edition = "2021"
 
 [dependencies]
 structopt = { version = "0.3", default-features = false }
-colored = "2"
 fastping-rs = "0.2"
 winres = "0.1.12"
 is-root = "0.1.2"
