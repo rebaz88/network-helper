@@ -1,9 +1,8 @@
 use std::io::{stdin,stdout,Write};
 use std::process;
-pub mod ip_validation;
-pub mod pinger;
-
+use crate::utils::*;
 use ip_validation::{IPAddressValidation,is_valid_ip_address};
+pub mod ping_all_devices;
 
 pub fn run() {
     println!("\n=================");
@@ -19,8 +18,9 @@ pub fn run() {
 fn options() {
     
     println!("Please select one of the options");
-    println!("1- Reset certain switch");
-    println!("2- Reset all switches");
+    println!("1- Ping all devices");
+    println!("2- Reset certain switch");
+    println!("3- Reset all switches");
     println!("Any other key to exit");
     
     let s: String = prompt();
@@ -29,14 +29,20 @@ fn options() {
         "" => {
             println!("*** Please enter a key! ***\n");
         }
+        
         "1" => {
+            ping_all_devices::run();
+        }
+        
+        "2" => {
             let ip: String = ip_prompt();
             
             // check if can ping the swith
             pinger::run(&vec![ip.as_str()]);
         }
-        "2" => {
-            println!("You want to reset all switches");
+        
+        "3" => {
+            println!("");
         }
         _ => {
             println!("Good bye!");

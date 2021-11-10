@@ -1,5 +1,5 @@
 [package]
-name = "network-helper"
+name = "network"
 version = "0.1.0"
 authors = ["Rebaz Saleh <rebaz88.software@gmail.com>"]
 license = "MIT OR Apache-2.0"
@@ -13,3 +13,5 @@ structopt = { version = "0.3", default-features = false }
 fastping-rs = "0.2"
 winres = "0.1.12"
 is-root = "0.1.2"
+csv = "1.1.6"
+serde = { version = "1.0.130", features = ["derive"] }

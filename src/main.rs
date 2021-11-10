@@ -1,12 +1,13 @@
-mod options;
+extern crate network;
 use is_root::is_root;
+use network::options;
 
 #[cfg(target_os = "windows")]
 use winres;
 
 #[cfg(target_os = "windows")]
 fn main() {
-    options::run();
+    network::options::show();
 }
 
 #[cfg(not (target_os = "windows"))]
